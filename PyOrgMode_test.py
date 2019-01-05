@@ -715,8 +715,8 @@ class OrgDataStructure(OrgElement):
         elif form == "string":
             content = name.split("\n")
         else:
-            raise ValueError("Form \""+form+"\" not recognized") 
 
+            raise ValueError("Form \""+form+"\" not recognized")
         for line in content:
             for plugin in self.plugins:
                 current = plugin.treat(current,line)
