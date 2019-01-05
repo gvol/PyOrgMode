@@ -396,6 +396,7 @@ class OrgDrawer(OrgPlugin):
             return output
     class Property(OrgElement):
         """A Property object, used in drawers."""
+        TYPE = "DRAWER_PROPERTY"
         def __init__(self,name="",value=""):
             OrgElement.__init__(self)
             self.name = name
