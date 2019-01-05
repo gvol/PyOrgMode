@@ -450,7 +450,8 @@ class OrgDrawer(OrgPlugin):
     def __init__(self):
         OrgPlugin.__init__(self)
         self.regexp = re.compile(r"^(?:\s*?)(?::)(\S.*?)(?::)\s*(.*?)$")
-
+        # self.regexp = re.compile(r'^(?:\s*?)(?::)(\w+?)(?::)\s*(.*?)$')
+                                 # "^[ 	]*:\\(\\(?:\\w\\|[-_]\\)+\\):[ 	]*$"
     def _treat(self, current, line):
         drawer = self.regexp.search(line)
         if isinstance(current, OrgDrawer.Element):  # We are in a drawer
@@ -490,6 +491,7 @@ class OrgDrawer(OrgPlugin):
 
     class Property(OrgElement):
         """A Property object, used in drawers."""
+        TYPE = "DRAWER_PROPERTY"
 
         def __init__(self, name="", value=""):
             OrgElement.__init__(self)
